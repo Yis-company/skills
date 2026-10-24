@@ -50,7 +50,7 @@ Inspect the repository, answer unresolved questions, review a concrete plan, app
 
 The personal baseline lives in [standards](standards/baseline.md). Setup and maintenance skills bundle the shared baseline references. Specialized skills carry their own references, so each installed skill works on its own. Edit source references and run `bun run skills:bundle`; `bun run check` checks freshness, portability, types, tests and lint/format.
 
-Use Bun 1.4.2 as recorded in `.bun-version`, then `bun install --frozen-lockfile`. Applications live in `apps/`, shared config in `configs/`, and shared packages are added only for actual consumers.
+Use Bun 1.4.4 as recorded in `.bun-version`, then `bun install --frozen-lockfile`. Applications live in `apps/`, shared config in `configs/`, and shared packages are added only for actual consumers.
 
 ## Upstream sources
 
