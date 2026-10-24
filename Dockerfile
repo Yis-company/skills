@@ -1,5 +1,5 @@
-FROM oven/bun:1.4.2 AS bun-runtime
-FROM node:22-bookworm-slim AS build
+FROM oven/bun:1.4.4 AS bun-runtime
+FROM node:22.23.4-bookworm-slim AS build
 COPY --from=bun-runtime /usr/local/bin/bun /usr/local/bin/bun
 WORKDIR /app
 COPY . .
