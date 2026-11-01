@@ -52,6 +52,8 @@ The personal baseline lives in [standards](standards/baseline.md). Setup and mai
 
 Use Bun 1.4.4 as recorded in `.bun-version`, then `bun install --frozen-lockfile`. Applications live in `apps/`, shared config in `configs/`, and shared packages are added only for actual consumers.
 
+Installing dependencies in a Git checkout also installs the repository's pre-push hook. It runs skill validation, typechecking, offline unit tests, lint and format checks against the working tree. The release-workflow test file is excluded locally because one fixture installs dependencies; CI still runs the full suite and builds. Typechecking regenerates the ignored `apps/web/src/content/generated.ts` file. Git, Bun, Node and installed dependencies are required; a failed check blocks the push. Existing personal pre-push hooks or a configured `core.hooksPath` must be resolved explicitly before installation. Source archives have no Git hook to install. Git can bypass hooks, and CI remains the check for the pushed commits.
+
 ## Upstream sources
 
 Setup uses [Matt Pocock's engineering skills and setup workflow](https://github.com/mattpocock/skills). Frontends use [Emil Kowalski's design and animation skills](https://github.com/emilkowalski/skills). These remain owned and distributed upstream; this repository references them rather than republishing their contents.
