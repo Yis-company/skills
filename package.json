@@ -8,6 +8,7 @@
   ],
   "type": "module",
   "scripts": {
+    "prepare": "sh scripts/install-hooks.sh",
     "skills:bundle": "bun scripts/skills.ts bundle",
     "skills:check": "bun scripts/skills.ts check",
     "typecheck": "tsc --noEmit && turbo run typecheck",

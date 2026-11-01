@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+root=$(git rev-parse --show-toplevel)
+unset $(git rev-parse --local-env-vars)
+cd "$root"
+
+bun run skills:check
+bun run typecheck
+bun run test --exclude scripts/release-with-changesets.test.ts
+bun run lint
+bun run format:check
