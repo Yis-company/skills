@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Website product context — plan</title><style>
+*{box-sizing:border-box}html,body{margin:0;background:transparent}body{color:var(--foreground,#252731);font-family:var(--font-sans,system-ui,sans-serif);font-size:16px;line-height:1.65}main{max-width:850px;margin:auto}h1{font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.15;letter-spacing:-.035em;margin:16px 0 24px}h2{font-size:1.24rem;line-height:1.35;margin:34px 0 12px}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:9px 0}a{color:var(--primary,#5445a5);text-underline-offset:3px;overflow-wrap:anywhere}code,pre{font-family:var(--font-mono,ui-monospace,monospace);font-size:.87em}code{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px;background:var(--code-background,#f3f2f7);border:1px solid var(--border,#dcdbe4);border-radius:var(--radius,8px);line-height:1.6}pre code{font-size:inherit}details{margin:22px 0;padding:16px;background:var(--card,#f8f7fa);border:1px solid var(--border,#dcdbe4);border-radius:var(--radius,8px)}summary{font-weight:650;cursor:pointer;overflow-wrap:anywhere}summary:focus-visible,a:focus-visible{outline:3px solid var(--ring,#7962c7);outline-offset:4px}details[open] summary{margin-bottom:16px}@media(max-width:480px){body{font-size:15px}pre,details{padding:12px}h2{margin-top:28px}}
+</style></head><body><main><h1>Website product context</h1>
+<p>Capture the confirmed purpose and constraints of <code>apps/web</code> so continuing website work starts with durable product facts. This is documentation and one workflow preference, owned by Codex and reviewed by Yi.</p>
+
+<h2>Confirmed decisions</h2>
+<ul>
+<li>Yi confirmed continuing product/design work on the catalog/docs website for developers browsing portable repository skills, copying installation commands, and reading source-owned standards.</li>
+<li>Context belongs in <code>apps/web</code>, as resolved by Impeccable. It does not govern the whole skills library.</li>
+<li>Yi chose code-first for future landing pages and showcase surfaces. Record <code>buildPath: &quot;code&quot;</code> in the app's Impeccable config; app screens and documents remain code-first under the skill's workflow.</li>
+<li>Preserve existing static hosting and the approved Iris theme. This initialization establishes no new visual direction.</li>
+<li>Matt setup is already present: GitHub Issues guidance, triage vocabulary with the triage skill installed, and domain-document conventions. No additional Matt setup is needed.</li>
+</ul>
+
+<h2>Sequence and approval</h2>
+<ol>
+<li>Yi reviews this plan, including the exact product draft and config below, through the required Plannotator approval gate. Do not write either target before approval. If changes are requested, revise both plan formats and review again.</li>
+<li>After approval, Codex creates only <code>apps/web/PRODUCT.md</code> and <code>apps/web/.impeccable/config.json</code>, using the reviewed content. If either file appears in the meantime, inspect it and preserve existing authority instead of overwriting it.</li>
+<li>Codex checks the product schema marker, platform, source links, and JSON value; runs <code>bun run format:check</code> and <code>git diff --check</code>; then reviews final file scope and reports actual results.</li>
+</ol>
+<p>The review packet lives in <code>.codex/plans/2026-11-01-website-product-context/</code> as <code>plan.md</code>, <code>plan.html</code>, and the gate's <code>review.json</code>. These planning artifacts precede implementation.</p>
+
+<details><summary>Exact draft: apps/web/PRODUCT.md</summary><pre><code class="language-markdown"># Yi's repository skills website
+
+&lt;!-- impeccable:product-schema 1 --&gt;
+
+## Platform
+
+web
+
+## Users
+
+Developers evaluating portable repository skills, choosing a skill for their work, copying its installation command, and reading the standards it uses.
+
+## Product Purpose
+
+Make the repository's skills and engineering standards easy to discover, evaluate, install, and understand. Continuing product/design work is scoped to this catalog and documentation website.
+
+## Operating Context
+
+The website accompanies the `ybtam/skills` repository. Visitors browse or search the catalog, open a skill's full instructions and source, copy an installation command, and read full standard documents. Installing and running skills happens outside the website.
+
+## Capabilities and Constraints
+
+- The catalog is generated from maintained `skills/` sources; standard documents come from `standards/`. These repository sources remain authoritative.
+- Preserve static output, both root-path hosting and the `/skills/` GitHub Pages base, directly accessible public routes, and missing-page recovery.
+- The established website scope has no accounts, saved questionnaires, database, native app, or shared backend.
+- This record applies to `apps/web`; it does not replace root engineering guidance, domain terminology, architecture decisions, or portable skill instructions.
+- Upstream skills remain explicitly attributed to their owners rather than presented as this repository's own work.
+
+## Evidence on Hand
+
+- [Repository overview and installation guidance](../../README.md).
+- [Approved original scope](../../.codex/plans/2026-09-05-repository-skills/plan.md).
+- [Website contributor guidance](AGENTS.md).
+- [Catalog and skill sources](../../skills/) and [maintained standards](../../standards/).
+- [Content generation](src/content/generate.ts) and [website routes](src/routes/).
+
+## Product Principles
+
+- Help visitors select a relevant skill and reach its installation instructions or source.
+- Keep website content tied to maintained repository sources rather than duplicate editorial copies.
+- Keep the website small and static; add capabilities only for a confirmed need.
+
+## Accessibility &amp; Inclusion
+
+Preserve keyboard operation and visible focus, reduced-motion behavior, usability at mobile widths, readable documentation and code blocks, useful empty search results, and usable feedback when copying fails.
+</code></pre>
+</details>
+<details><summary>Exact draft: apps/web/.impeccable/config.json</summary><pre><code class="language-json">{
+  &quot;buildPath&quot;: &quot;code&quot;
+}
+</code></pre>
+<p>This is a workflow preference, not product truth. Keep it out of <code>PRODUCT.md</code>.</p>
+</details>
+<h2>Preserved and deferred</h2>
+<ul>
+<li>Preserve the existing Iris identity in implementation and its approved plan; do not write or replace <code>DESIGN.md</code> during init. Impeccable init records product truth only.</li>
+<li>Live-mode configuration is deferred until visual iteration needs it. No server, browser injection, CSP edit, hook change, dependency installation, application code, redesign, migration, credentials, publishing, or deployment is part of this setup.</li>
+<li>Preserve unrelated dirty work: modified root <code>AGENTS.md</code>, untracked <code>.hermes/</code>, <code>.serena/</code>, <code>.trae/</code>, and <code>docs/agents/code-review.md</code> observed at investigation.</li>
+<li>No new ADR, tracker configuration, baseline changes, skill bundles, or root <code>PRODUCT.md</code> are needed.</li>
+<li>Do not add unconfirmed positioning claims, usage metrics, customer proof, or a new accessibility certification claim.</li>
+</ul>
+
+<h2>Acceptance and evidence limits</h2>
+<ul>
+<li>The app owns a short product record with the schema marker, bare <code>web</code> platform, confirmed users/purpose, actual capabilities, and existing constraints. Every evidence link resolves locally.</li>
+<li>The app's config records only the confirmed <code>buildPath: &quot;code&quot;</code> preference, preserving any existing keys if concurrent work creates a config before implementation.</li>
+<li>The two implementation files match the reviewed draft, with formatting adjustments allowed. Existing source, design, tracker, domain, and unrelated work are preserved.</li>
+<li>Verification is proportionate to documentation/config changes: format check, whitespace check, JSON/schema/link inspection, and final scope review. No new tests or application build is needed because runtime behavior is unchanged. Report pre-existing failures separately.</li>
+<li>Local checks do not establish remote CI, live website behavior, publication, or deployment. None is being requested or performed.</li>
+</ul>
+
+<details><summary>Investigation evidence</summary><p>CodeGraph was queried before locating website source. Impeccable context resolved the app root as <code>apps/web</code>, reported an incumbent visual implementation, and found no <code>PRODUCT.md</code> or <code>DESIGN.md</code>. Current routes and content generation substantiate the catalog, search, skill details, installation commands, standards reader, and repository-source ownership. The original repository plan and Iris plan both have recorded approved review results. The latest website commits inspected were from September 2026; Yi's current confirmation establishes ongoing intent rather than inferring it from commit recency.</p>
+<p>The local Matt setup skill was read and its existing outputs checked against the installed triage skill and <code>origin</code> (<code>ybtam/skills</code>). This assesses local configuration; remote labels were not audited or modified. Shared-memory tooling was unavailable, and no relevant prior-memory entry was used.</p>
+</details></main></body></html>
