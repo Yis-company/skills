@@ -4,14 +4,14 @@ set -eu
 root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 cd "$root"
 
-if ! command -v git >/dev/null 2>&1; then
-  echo "Git is required to install the pre-push hook." >&2
-  exit 1
-fi
-
 if [ ! -e .git ]; then
   echo "No Git checkout found; pre-push hook was not installed."
   exit 0
+fi
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "Git is required to install the pre-push hook." >&2
+  exit 1
 fi
 
 if git config --get core.hooksPath >/dev/null; then
