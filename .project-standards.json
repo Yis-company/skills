@@ -3,7 +3,7 @@
   "baselineVersion": "0.1.0",
   "choices": {
     "runtime": "bun",
-    "runtimeVersion": "1.4.2",
+    "runtimeVersion": "1.4.4",
     "packageManager": "bun",
     "framework": "tanstack-start",
     "review": "plannotator",

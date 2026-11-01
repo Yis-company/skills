@@ -4,7 +4,7 @@ This historical record describes the seven-skill baseline at the time. The appro
 
 ## Passed locally
 
-- Bun 1.4.2 frozen-lockfile installation.
+- Bun 1.4.4 frozen-lockfile installation.
 - Vercel skills CLI discovery: exactly seven published skills.
 - Actual copy-style installation of all seven into an isolated temporary project.
 - Bundled reference freshness and isolated reference closure, including missing and escaping-link failures.
